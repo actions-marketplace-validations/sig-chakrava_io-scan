@@ -1,6 +1,6 @@
-name: 'Synopsys Intelligent Security Scan'
+name: 'IO Scan'
 description: 'Initiate optimized SAST/SCA scans based on code changes and policy with filtered results for display in GitHub.'
-author: 'DevSecOps Team @ Synopsys SIG'
+author: 'Customer Toolchain Team @ Synopsys SIG'
 branding:
   icon: 'shield'
   color: 'purple'
