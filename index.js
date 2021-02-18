@@ -44,7 +44,7 @@ try {
 		shell.exec(`chmod +x prescription.sh`)
 		shell.exec(`sed -i -e 's/\r$//' prescription.sh`)
 		let pdata = fs.readFileSync('prescription.sh');
-		console.log(pdata)
+		console.log(pdata.toString())
 		rcode = shell.exec(`./prescription.sh --io.url=${ioServerUrl} --io.token=${ioServerToken} --io.manifest.url=${ioManifestUrl} --stage=${stage} --workflow.version=${workflowVersion} --asset.id=${asset_id} --scm.type=${scmType} --scm.owner=${scmOwner} --scm.repo.name=${scmRepoName} --scm.branch.name=${scmBranchName} --github.username=${githubUsername} --IS_SAST_ENABLED=true --IS_SCA_ENABLED=true ${additionalWorkflowArgs}`).code;
 		
 		if (rcode != 0){
