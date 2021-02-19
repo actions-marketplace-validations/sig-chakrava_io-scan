@@ -4,6 +4,7 @@ const fs = require('fs');
 
 try {
 	const ioServerHost = core.getInput('ioServerHost');
+	const prescriptionDownloadURL = core.getInput('prescriptionDownloadURL');
 	const ioServerPort = core.getInput('ioServerPort');
 	const ioServerToken = core.getInput('ioServerToken');
 	var workflowServerHost = core.getInput('workflowServerHost');
@@ -24,7 +25,7 @@ try {
 	// Irrespective of Machine this should be invoked
 	if(stage.toUpperCase() === "IO") {
 		console.log("Triggering prescription")
-		shell.exec(`curl -o prescription.sh https://9c6cb0843081.ngrok.io`)
+		shell.exec(`curl -o prescription.sh ${prescriptionDownloadURL}`)
 		shell.exec(`chmod +x prescription.sh`)
 		shell.exec(`sed -i -e 's/\r$//' prescription.sh`)
 		rcode = shell.exec(`./prescription.sh --IO.url=${ioServerHost}:${ioServerPort} --IO.token=${ioServerToken} --app.manifest.path=${applicationManifest} --sec.manifest.path=${ioManifest} --stage=${stage} --workflow.version=${workflowVersion} ${additionalWorkflowArgs}`).code;

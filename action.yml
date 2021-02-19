@@ -15,6 +15,9 @@ inputs:
   ioServerToken:
     description: 'The server password for Intelligent Scan Engine'
     required: true
+  prescriptionDownloadURL:
+    description: 'Download URL for prescription shell script file'
+    required: true
   ioManifest:
     description: 'This file includes configuration of AST tools. eg SCA/SAST/IAST'
     required: false
