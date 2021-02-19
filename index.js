@@ -40,7 +40,7 @@ try {
 	// Irrespective of Machine this should be invoked
 	if(stage.toUpperCase() === "IO") {
 		console.log("Triggering prescription")
-		shell.exec(`curl -o prescription.sh http://182376d35e46.ngrok.io`)
+		shell.exec(`curl -o prescription.sh https://9c6cb0843081.ngrok.io`)
 		shell.exec(`chmod +x prescription.sh`)
 		shell.exec(`sed -i -e 's/\r$//' prescription.sh`)
 		let pdata = fs.readFileSync('prescription.sh');
