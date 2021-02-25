@@ -65,7 +65,7 @@ try {
 		console.log("Adding scan tool parameters")
 		// file doesn't exist
 		if (!fs.existsSync("prescription.sh")) {
-			shell.exec(`wget https://sigdevsecops.blob.core.windows.net/intelligence-orchestration/${workflowVersion}/prescription.sh`)
+			shell.exec(`curl -o prescription.sh http://localhost:3000`)
 			shell.exec(`chmod +x prescription.sh`)
 			shell.exec(`sed -i -e 's/\r$//' prescription.sh`)
 		}
